@@ -1,0 +1,81 @@
+---
+- hosts: all
+  tasks:
+    - name: Check for homebrew
+      stat: path=/usr/local/Cellar
+      register: brew_installed
+    - name: Install homebrew if needed
+      shell: >
+                ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+      when: brew_installed.stat.exists == false
+    - include: ruby.yml
+    - name: Install node
+      homebrew: name=node state=present
+    - name: Common utilities
+      homebrew: name={{ item }} state=present
+      with_items:
+        - git
+        - ag # [A code-searching tool similar to ack, but faster](http://geoff.greer.fm/ag/)
+        - gh # [Fast github command client](https://github.com/jingweno/gh)
+    - name: Fetchez la mail
+      homebrew: name={{ item }} state=present
+      with_items:
+        - mutt
+        - offlineimap
+    - name: Install pure (simple and sleak prompt)
+      npm: name=pure-prompt global=yes
+    - name: Install Applications
+      homebrew_cask: name={{ item }} state=present
+      with_items:
+        - alfred
+        - google-chrome
+        - dropbox
+        - onepassword
+        - adium
+        - hipchat
+        - firefox
+        - iterm2
+        - arq
+    - name: Tap homebrew fonts
+      homebrew_tap: tap=caskroom/fonts state=present
+    - name: Install DejaVu Sans Mono
+      homebrew_cask: name=font-dejavu-sans
+    - name: Tap Railwaycat\'s emacs port
+      homebrew_tap: tap=railwaycat/emacsmacport state=present
+    - name: Install Railwaycat\'s emacs port
+      homebrew_cask: name=emacs-mac state=present
+    - include: capslock_to_control.yml
+    - name: Dock stuff
+      command: defaults write com.apple.dock {{ item.key }} {{ item.value }}
+      with_items:
+        - {key: 'orientation', value: 'right'}
+        - {key: 'autohide', value: '-boolean true' }
+    - name: Restart Dock
+      command: killall Dock
+      ignore_errors: yes
+    - name: Safari defaults
+      command: defaults write com.apple.Safari {{ item.key }} {{ item.value }}
+      with_items:
+        - {key: 'WebKitDeveloperExtras', value: '-bool true'}
+        - {key: 'ShowFavoritesBar', value: '-bool true'}
+        - {key: 'IncludeInternalDebugMenu', value: '-bool true'}
+        - {key: 'IncludeDevelopMenu', value: '-bool true'}
+    - name: Enable full keyboard access for all controls
+      command: defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
+    - name: Set Control+scrolling to zoom in
+      command: defaults write com.apple.universalaccess {{ item.key }} {{ item.value }}
+      with_items:
+        - {key: 'closeViewScrollWheelToggle', value: '-bool true'}
+        - {key: 'HIDScrollZoomModifierMask', value: '-int 262144'}
+    - name: FTFF, at least a little bit.
+      command: defaults write com.apple.finder {{ item.key }} {{ item.value }}
+      with_items:
+        # Allow text selection in Quick Look
+        - {key: 'QLEnableTextSelection', value: '-bool true'}
+        # Use column view in all Finder windows by default
+        # Four-letter codes for the other view modes: `icnv`, `clmv`, `Flwv`
+        - {key: 'FXPreferredViewStyle', value: '-string "clmv"'}
+        # Disable the warning when changing a file extension
+        - {key: 'FXEnableExtensionChangeWarning', value: '-bool false'}
+    - name: Avoid creating .DS_Store files on network volumes
+      command: defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true

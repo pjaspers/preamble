@@ -1,0 +1,18 @@
+---
+# Everything related to ruby
+- name: Install chruby
+  homebrew: name=chruby state=present
+- name: Install ruby-install
+  homebrew: name=ruby-install state=present
+- include: ruby-install.yml rubies={{ rubies }}
+  vars:
+    rubies:
+      - {flavor: "ruby", version: "2.1.2"}
+      - {flavor: "ruby", version: "1.9.3"}
+- name: Install Postgres (with workaround for DP7)
+  homebrew: name=postgres state=present install_options=no-perl
+- name: Check for phantomjs
+  stat: path=/usr/local/bin/phantomjs
+  register: phantom_installed
+- include: phantomjs.yml phantomjs_url="https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-1.9.7-macosx.zip"
+  when: phantom_installed.stat.exists == false

@@ -1,0 +1,9 @@
+- name: Get all keyboard id\'s
+  shell: >
+    ioreg -n IOHIDKeyboard -r | grep -E 'VendorID"|ProductID' | awk '{ print $4 }' | paste -s -d'-\n' -
+  register: keyboard_ids
+
+- name: Remap capslock to control
+  shell: >
+     defaults -currentHost write -g 'com.apple.keyboard.modifiermapping.{{ item }}-0' -array '<dict><key>HIDKeyboardModifierMappingDst</key><integer>2</integer><key>HIDKeyboardModifierMappingSrc</key><integer>0</integer></dict>'
+  with_items: keyboard_ids.stdout_lines

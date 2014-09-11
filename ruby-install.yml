@@ -1,0 +1,7 @@
+- name: Installed rubies
+  shell: ls ~/.rubies
+  register: installed_rubies
+- name: Install rubies
+  shell: ruby-install {{ item.flavor }} {{ item.version }}
+  with_items: rubies
+  when: installed_rubies.stdout.find("{{ item.flavor }}-{{ item.version }}") == -1
