@@ -36,6 +36,7 @@
         - firefox
         - iterm2
         - arq
+        - spotify
     - name: Tap homebrew fonts
       homebrew_tap: tap=caskroom/fonts state=present
     - name: Install DejaVu Sans Mono
