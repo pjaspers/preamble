@@ -50,6 +50,8 @@
       homebrew_tap: tap=railwaycat/emacsmacport state=present
     - name: Install Railwaycat\'s emacs port
       homebrew_cask: name=emacs-mac state=present
+    - name: Install regular emacs for in Terminal
+      homebrew: name=emacs install_options=HEAD,cocoa,srgb,with-gnutls
     - include: capslock_to_control.yml
     - name: Dock stuff
       command: defaults write com.apple.dock {{ item.key }} {{ item.value }}
