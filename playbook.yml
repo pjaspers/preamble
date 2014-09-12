@@ -17,6 +17,7 @@
         - git
         - ag # [A code-searching tool similar to ack, but faster](http://geoff.greer.fm/ag/)
         - gh # [Fast github command client](https://github.com/jingweno/gh)
+        - tmux # [A better screen](http://tmux.sourceforge.net)
     - name: Fetchez la mail
       homebrew: name={{ item }} state=present
       with_items:
