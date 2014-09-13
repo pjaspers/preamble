@@ -43,6 +43,7 @@
         - spotify
         - mailmate
         - transmission
+        - cyberduck
     - name: Tap homebrew fonts
       homebrew_tap: tap=caskroom/fonts state=present
     - name: Install DejaVu Sans Mono
