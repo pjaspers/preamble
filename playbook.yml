@@ -31,20 +31,20 @@
     - name: Install Applications
       homebrew_cask: name={{ item }} state=present
       with_items:
-        - alfred
-        - google-chrome
-        - dropbox
-        - onepassword
-        - adium
-        - hipchat
-        - firefox
-        - iterm2
-        - arq
-        - spotify
-        - mailmate
-        - transmission
-        - cyberduck
-        - daisydisk
+        - google-chrome # Mainly for it's handier shortcuts
+        - dropbox       # Necessary evil
+        - onepassword   # Password manager
+        - adium         # IM
+        - hipchat       # not a fan, but needed
+        - firefox       # mainly for testing purposes
+        - iterm2        # a better Terminal
+        - arq           # backup
+        - spotify       # music
+        - mailmate      # gui mail
+        - transmission  # torrents
+        - cyberduck     # (s)ftp
+        - daisydisk     # disk usage
+        - base          # sqlite browser
     - name: Tap homebrew fonts
       homebrew_tap: tap=caskroom/fonts state=present
     - name: Install DejaVu Sans Mono
