@@ -1,4 +1,4 @@
-- name: Get all keyboard id\'s
+- name: Get all keyboard ids
   shell: >
     ioreg -n IOHIDKeyboard -r | grep -E 'VendorID"|ProductID' | awk '{ print $4 }' | paste -s -d'-\n' -
   register: keyboard_ids
