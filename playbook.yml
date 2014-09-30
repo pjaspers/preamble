@@ -80,6 +80,7 @@
         - vlc
         - qlstephen # Quicklook any possible text file. You need this.
         - calibre # Probably the best ebook app out there.
+        - lastfm # My favorite social network to never visit.
     - name: Tap homebrew fonts
       homebrew_tap: tap=caskroom/fonts state=present
     - name: Install DejaVu Sans Mono
