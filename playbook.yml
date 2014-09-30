@@ -79,6 +79,7 @@
         - colorpicker-developer # A better color picker (easy access to html/UIColor)
         - vlc
         - qlstephen # Quicklook any possible text file. You need this.
+        - calibre # Probably the best ebook app out there.
     - name: Tap homebrew fonts
       homebrew_tap: tap=caskroom/fonts state=present
     - name: Install DejaVu Sans Mono
