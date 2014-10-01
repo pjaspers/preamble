@@ -3,7 +3,15 @@
     ioreg -n IOHIDKeyboard -r | grep -E 'VendorID"|ProductID' | awk '{ print $4 }' | paste -s -d'-\n' -
   register: keyboard_ids
 
-- name: Remap capslock to control
+- name: Remap capslock to control for all keyboards
   shell: >
-     defaults -currentHost write -g 'com.apple.keyboard.modifiermapping.{{ item }}-0' -array '<dict><key>HIDKeyboardModifierMappingDst</key><integer>2</integer><key>HIDKeyboardModifierMappingSrc</key><integer>0</integer></dict>'
+    defaults -currentHost write -g 'com.apple.keyboard.modifiermapping.{{ item }}-0' -array '<dict><key>HIDKeyboardModifierMappingDst</key><integer>2</integer><key>HIDKeyboardModifierMappingSrc</key><integer>0</integer></dict>'
   with_items: keyboard_ids.stdout_lines
+- name: Windows Sculpt keyboard needs command and options swapped
+  shell: >
+    defaults -currentHost write -g 'com.apple.keyboard.modifiermapping.1118-1957-0' -array-add '<dict><key>HIDKeyboardModifierMappingDst</key><integer>{{ item.dst }}</integer><key>HIDKeyboardModifierMappingSrc</key><integer>{{ item.src  }}</integer></dict>'
+  with_items:
+    - {src: '4', dst: '3'}   # Left : ⌘ -> ⌥
+    - {src: '12', dst: '11'} # Right: ⌘ -> ⌥
+    - {src: '3', dst: '4'}   # Left : ⌥ -> ⌘
+    - {src: '11', dst: '12'} # Right: ⌥ -> ⌘
