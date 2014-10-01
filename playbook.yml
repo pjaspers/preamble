@@ -50,6 +50,7 @@
         - gh # [Fast github command client](https://github.com/jingweno/gh)
         - tmux # [A better screen](http://tmux.sourceforge.net)
         - links # [Browse in the terminal](http://links.twibright.com)
+        - ngrok # [Easy way to get a public IP](https://ngrok.com)
     - name: Fetchez la mail
       homebrew: name={{ item }} state=present
       with_items:
