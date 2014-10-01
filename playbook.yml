@@ -58,6 +58,7 @@
         - offlineimap # Fetch mails
         - lbdb # Talk to AddressBook
         - msmtp # Send mails
+        - notmuch # Finding all the mails
     - name: Install pure (simple and sleak prompt)
       npm: name=pure-prompt global=yes
     - name: Install Applications
