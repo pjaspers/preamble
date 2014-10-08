@@ -52,6 +52,7 @@
         - links # [Browse in the terminal](http://links.twibright.com)
         - ngrok # [Easy way to get a public IP](https://ngrok.com)
         - htop # [A better top](http://hisham.hm/htop/)
+        - heroku # Heroku Toolbelt
     - name: Fetchez la mail
       homebrew: name={{ item }} state=present
       with_items:
