@@ -87,6 +87,7 @@
         - lastfm # My favorite social network to never visit.
         - omnigraffle # Mostly for wireframing
         - cloak # VPN without the hassle.
+        - the-unarchiver # [A more capable unzip/rar/all_the_things-er](http://wakaba.c3.cx/s/apps/unarchiver)
     - name: Tap homebrew fonts
       homebrew_tap: tap=caskroom/fonts state=present
     - name: Install DejaVu Sans Mono
