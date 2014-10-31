@@ -133,5 +133,7 @@
         - {key: 'FXPreferredViewStyle', value: '-string "clmv"'}
         # Disable the warning when changing a file extension
         - {key: 'FXEnableExtensionChangeWarning', value: '-bool false'}
+        # New Finder window should open home directory
+        - {key: 'NewWindowTarget', value: 'PfHm'}
     - name: Avoid creating .DS_Store files on network volumes
       command: defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
