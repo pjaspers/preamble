@@ -89,6 +89,7 @@
         - omnigraffle # Mostly for wireframing
         - cloak # VPN without the hassle.
         - the-unarchiver # [A more capable unzip/rar/all_the_things-er](http://wakaba.c3.cx/s/apps/unarchiver)
+        - iphone-configuration-utility # [A sane way to handle the Provisioning profile mess](http://support.apple.com/kb/DL1465?viewlocale=en_US&locale=en_US)
     - name: Tap homebrew fonts
       homebrew_tap: tap=caskroom/fonts state=present
     - name: Install DejaVu Sans Mono
