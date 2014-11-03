@@ -54,6 +54,7 @@
         - ngrok # [Easy way to get a public IP](https://ngrok.com)
         - htop # [A better top](http://hisham.hm/htop/)
         - heroku # Heroku Toolbelt
+        - mosh # [A better ssh (sometimes)](https://mosh.mit.edu)
     - name: Fetchez la mail
       homebrew: name={{ item }} state=present
       with_items:
