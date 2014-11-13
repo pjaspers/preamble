@@ -95,6 +95,7 @@
         - virtualbox
         - silverlight # sigh.
         - mactex # Hmm, LaTeX.
+        - authy-bluetooth # To handle two-step verification
     - name: Tap homebrew fonts
       homebrew_tap: tap=caskroom/fonts state=present
     - name: Install DejaVu Sans Mono
