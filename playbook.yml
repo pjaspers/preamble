@@ -94,6 +94,7 @@
         - xscreensaver # [jwz's collection of screensaver](http://www.jwz.org/xscreensaver/)
         - virtualbox
         - silverlight # sigh.
+        - mactex # Hmm, LaTeX.
     - name: Tap homebrew fonts
       homebrew_tap: tap=caskroom/fonts state=present
     - name: Install DejaVu Sans Mono
