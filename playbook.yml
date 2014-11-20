@@ -55,6 +55,7 @@
         - htop # [A better top](http://hisham.hm/htop/)
         - heroku # Heroku Toolbelt
         - mosh # [A better ssh (sometimes)](https://mosh.mit.edu)
+        - tig # A 'text-mode interface' for git. Bit more visual than regular git.
     - name: Fetchez la mail
       homebrew: name={{ item }} state=present
       with_items:
