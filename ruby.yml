@@ -11,7 +11,6 @@
       - {flavor: "ruby", version: "2.1"}
       - {flavor: "ruby", version: "2.2"}
       - {flavor: "ruby", version: "1.9"}
-      - {flavor: "jruby", version: "stable"}
 - name: Install Postgres (with workaround for DP7)
   homebrew: name=postgres state=present install_options=no-perl
 - name: Install MariaDB
