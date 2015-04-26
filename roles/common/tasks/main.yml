@@ -1,0 +1,41 @@
+- name: Check for homebrew
+  stat: path=/usr/local/Cellar
+  register: brew_installed
+
+- name: Install homebrew if needed
+  shell: >
+    ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+  when: brew_installed.stat.exists == false
+
+- name: Update homebrew
+  homebrew: update_homebrew=yes
+
+- name: Install homebrew cask
+  homebrew: name="brew-cask" state=latest
+
+- name: Clean homebrew cask
+  shell: brew cask cleanup
+
+- name: Common utilities
+  homebrew: name={{ item }} state=present
+  with_items:
+    - git
+    - ag     # [A code-searching tool similar to ack, but faster](http://geoff.greer.fm/ag/)
+    - gh     # [Fast github command client](https://github.com/jingweno/gh)
+    - tmux   # [A better screen](http://tmux.sourceforge.net)
+    - links  # [Browse in the terminal](http://links.twibright.com)
+    - ngrok  # [Easy way to get a public IP](https://ngrok.com)
+    - htop   # [A better top](http://hisham.hm/htop/)
+    - heroku # Heroku Toolbelt
+    - mosh   # [A better ssh (sometimes)](https://mosh.mit.edu)
+    - tig    # A 'text-mode interface' for git. Bit more visual than regular git.
+    - node   # So I can use npm later on
+
+- name: Install pure (simple and sleak prompt)
+  npm: name=pure-prompt global=yes
+
+- name: Tap homebrew fonts
+  homebrew_tap: tap=caskroom/fonts state=present
+
+- name: Install DejaVu Sans Mono
+  homebrew_cask: name=font-dejavu-sans

@@ -1,0 +1,6 @@
+- name: Install Postgres (with workaround for DP7)
+  homebrew: name=postgres state=present install_options=no-perl
+- name: Install MariaDB
+  homebrew: name=mariadb state=present
+- name: Install Redis
+  homebrew: name=redis state=present

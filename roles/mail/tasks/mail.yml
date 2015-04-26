@@ -1,0 +1,8 @@
+- name: Fetchez la mail
+  homebrew: name={{ item }} state=present
+  with_items:
+    - mutt
+    - offlineimap # Fetch mails
+    - lbdb # Talk to AddressBook
+    - msmtp # Send mails
+    - notmuch # Finding all the mails

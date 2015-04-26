@@ -1,0 +1,42 @@
+- name: Dock stuff
+  command: defaults write com.apple.dock {{ item.key }} {{ item.value }}
+  with_items:
+    - {key: 'orientation', value: 'right'}
+    - {key: 'autohide', value: '-boolean true' }
+
+- name: Restart Dock
+  command: killall Dock
+  ignore_errors: yes
+
+- name: Safari defaults
+  command: defaults write com.apple.Safari {{ item.key }} {{ item.value }}
+  with_items:
+    - {key: 'WebKitDeveloperExtras', value: '-bool true'}
+    - {key: 'ShowFavoritesBar', value: '-bool true'}
+    - {key: 'IncludeInternalDebugMenu', value: '-bool true'}
+    - {key: 'IncludeDevelopMenu', value: '-bool true'}
+
+- name: Enable full keyboard access for all controls
+  command: defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
+
+- name: Set Control+scrolling to zoom in
+  command: defaults write com.apple.universalaccess {{ item.key }} {{ item.value }}
+  with_items:
+    - {key: 'closeViewScrollWheelToggle', value: '-bool true'}
+    - {key: 'HIDScrollZoomModifierMask', value: '-int 262144'}
+
+- name: FTFF, at least a little bit.
+  command: defaults write com.apple.finder {{ item.key }} {{ item.value }}
+  with_items:
+    # Allow text selection in Quick Look
+    - {key: 'QLEnableTextSelection', value: '-bool true'}
+    # Use column view in all Finder windows by default
+    # Four-letter codes for the other view modes: `icnv`, `clmv`, `Flwv`
+    - {key: 'FXPreferredViewStyle', value: '-string "clmv"'}
+    # Disable the warning when changing a file extension
+    - {key: 'FXEnableExtensionChangeWarning', value: '-bool false'}
+    # New Finder window should open home directory
+    - {key: 'NewWindowTarget', value: 'PfHm'}
+
+- name: Avoid creating .DS_Store files on network volumes
+  command: defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true

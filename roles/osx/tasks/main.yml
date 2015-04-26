@@ -1,0 +1,9 @@
+- include: applications.yml tags=osx
+- include: capslock_to_control.yml tags=osx,capslock
+- include: defaults.yml tags=osx,defaults
+
+# http://files.canon-europe.com/files/soft43931/software/d1343mux_m_215_drv012_cotv013_gdpv012.dmg
+# Needed on Mavericks with Xcode 4.6
+# Link: http://stackoverflow.com/questions/18667916/xcrun-lipo-freezes-with-os-x-mavericks-and-xcode-4-x
+# ln /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/lipo /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo
+# xcrun -k lipo

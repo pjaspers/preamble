@@ -1,0 +1,10 @@
+- include: ruby.yml tags=ruby
+
+- name: Check for phantomjs
+  stat: path=/usr/local/bin/phantomjs
+  register: phantom_installed
+
+- include: phantomjs.yml tags=phantomjs
+  vars:
+    phantomjs_url: "https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-1.9.7-macosx.zip"
+  when: phantom_installed.stat.exists == false
