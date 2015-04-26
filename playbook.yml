@@ -6,7 +6,7 @@
       register: brew_installed
     - name: Install homebrew if needed
       shell: >
-                ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+        ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
       when: brew_installed.stat.exists == false
     - include: ruby.yml
     - include: ios.yml
