@@ -2,7 +2,7 @@
 # Installs nginx and makes sure we can redirect *.dev to custom ports
 
 - name: Install nginx
-  homebrew: name=node state=present
+  homebrew: name=nginx state=present
 
 - name: Load nginx at startup
   file: src=/usr/local/opt/nginx/homebrew.mxcl.nginx.plist dest=/Library/LaunchDaemons/homebrew.mxcl.nginx.plist state=link
