@@ -1,7 +1,0 @@
----
-- get_url:
-    url: "{{ phantomjs_url }}"
-    dest: "/tmp/phantomjs.zip"
-    force: true
-- shell: "unzip -o -d /usr/local/opt /tmp/phantomjs.zip"
-- file: src=/usr/local/opt/phantomjs-1.9.7-macosx/bin/phantomjs dest=/usr/local/bin/phantomjs state=link
