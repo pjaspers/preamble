@@ -11,8 +11,3 @@
       - {flavor: "ruby", version: "2.1"}
       - {flavor: "ruby", version: "2.2"}
       - {flavor: "ruby", version: "1.9"}
-- name: Check for phantomjs
-  stat: path=/usr/local/bin/phantomjs
-  register: phantom_installed
-- include: phantomjs.yml phantomjs_url="https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-1.9.7-macosx.zip"
-  when: phantom_installed.stat.exists == false
