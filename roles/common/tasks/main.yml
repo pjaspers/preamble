@@ -1,5 +1,5 @@
 - name: Check for homebrew
-  stat: path=/usr/local/Cellar
+  stat: path=/usr/local/Library
   register: brew_installed
 
 - name: Install homebrew if needed
@@ -9,6 +9,9 @@
 
 - name: Update homebrew
   homebrew: update_homebrew=yes
+
+- name: Tap homebrew cask
+  homebrew_tap: name=caskroom/cask state=present
 
 - name: Install homebrew cask
   homebrew: name="brew-cask" state=latest
