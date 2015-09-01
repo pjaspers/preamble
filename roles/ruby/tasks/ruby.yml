@@ -2,6 +2,8 @@
 # Everything related to ruby
 - name: Install rbenv
   homebrew: name=rbenv state=present
+- name: create the install location for rubies
+  shell: mkdir -p ~/.rbenv/versions
 - include: ruby-install.yml rubies={{ rubies }}
   vars:
     rubies:
