@@ -1,13 +1,11 @@
 ---
 # Everything related to ruby
-- name: Install chruby
-  homebrew: name=chruby state=present
-- name: Install ruby-install
-  homebrew: name=ruby-install state=present
+- name: Install rbenv
+  homebrew: name=rbenv state=present
 - include: ruby-install.yml rubies={{ rubies }}
   vars:
     rubies:
-      - {flavor: "ruby", version: "2.0"}
-      - {flavor: "ruby", version: "2.1"}
-      - {flavor: "ruby", version: "2.2"}
-      - {flavor: "ruby", version: "1.9"}
+      - {flavor: "ruby", version: "2.0.0-p645"}
+      - {flavor: "ruby", version: "2.1.6"}
+      - {flavor: "ruby", version: "2.2.2"}
+      - {flavor: "ruby", version: "1.9.3-p551"}
