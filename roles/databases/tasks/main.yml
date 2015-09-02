@@ -6,8 +6,10 @@
   shell: launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
 - name: create the default postgres user
   shell: createuser -s {{ ansible_user_id }}
+  ignore_errors: yes
 - name: Create the default postgresql database
   shell: createdb -o {{ ansible_user_id }} {{ ansible_user_id }}
+  ignore_errors: yes
 - name: Install MariaDB
   homebrew: name=mariadb state=present
 - name: Link mariadb
