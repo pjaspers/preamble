@@ -19,5 +19,10 @@
 - name: Start Jenkins
   command: launchctl load ~/Library/LaunchAgents/homebrew.mxcl.jenkins.plist
   
+- name: Ensure ~/bin is present
+  file: state=directory path=~/bin
 
+# Not using this because of an issue with python, so curled it. Comme des animaux.
+# - name: Download and install dbbuilder
+#  get_url: url="https://pile.pjaspers.com/dbbuilder-YyuEMIFHt1." dest=~/bin/dbbuilder
 
