@@ -6,6 +6,12 @@
   homebrew: name=ruby-build state=present
 - name: create the install location for rubies
   shell: mkdir -p ~/.rbenv/versions
+- name: Install rbenv-bundler
+  homebrew: name=rbenv-bundler state=present
+- name: Create rbenv plugins directory
+  file: path=~/.rbenv/plugins state=directory
+- name: Install rbenv aliases
+  git: dest=~/.rbenv/plugins/rbenv-aliases repo=git://github.com/tpope/rbenv-aliases.git
 - include: ruby-install.yml rubies={{ rubies }}
   vars:
     rubies:
