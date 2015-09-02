@@ -8,3 +8,10 @@
   shell: rbenv install {{ item.version }}
   with_items: rubies
   when: installed_rubies.rc != 0 or installed_rubies.stdout.find("{{ item.version }}") == -1
+
+- name: Install bundler
+  shell: rbenv local {{ item.version }} && gem install bundler && rbenv rehash
+  with_items: rubies
+
+- name: Set global ruby to 2.2.0
+  shell: rbenv global 2.2.0
