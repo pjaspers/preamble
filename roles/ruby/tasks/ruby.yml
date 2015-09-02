@@ -4,6 +4,10 @@
   homebrew: name=rbenv state=present
 - name: Install ruby-build
   homebrew: name=ruby-build state=present
+- name: Add rbenv to shell
+  lineinfile: line='if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi' dest=~/.zshrc insertafter=EOF
+- name: Reload shell
+  shell: source ~/.zshrc
 - name: create the install location for rubies
   shell: mkdir -p ~/.rbenv/versions
 - name: Install rbenv-bundler
