@@ -13,5 +13,5 @@
   shell: ~/.rbenv/versions/{{ item.version }}/bin/gem install bundler
   with_items: rubies
 
-- name: Set global ruby to 2.2.0
-  shell: rbenv global 2.2.0
+- name: Set global ruby to 2.2.2
+  shell: rbenv global 2.2.2
