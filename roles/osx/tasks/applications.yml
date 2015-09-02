@@ -9,4 +9,4 @@
 
 - name: Install Applications
   homebrew_cask: name={{ item }} state=installed
-  with_items:
+  with_items: []
