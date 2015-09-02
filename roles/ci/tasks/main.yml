@@ -1,0 +1,14 @@
+- name: Install Java > 1.6+
+  homebrew_cask: name=java state=installed
+ 
+- name: Install Leeeeeeroy Jenkins
+  homebrew: name=jenkins state=present
+
+- name: Load Jenkins at startup
+  file: src=/usr/local/opt/jenkins/homebrew.mxcl.jenkins.plist dest=~/Library/LaunchAgents/homebrew.mxcl.jenkins.plist state=link
+  
+- name: Start Jenkins
+  command: launchctl load ~/Library/LaunchAgents/homebrew.mxcl.jenkins.plist
+  
+
+
