@@ -23,4 +23,5 @@
       - {flavor: "ruby", version: "2.1.0"}
       - {flavor: "ruby", version: "2.1.6"}
       - {flavor: "ruby", version: "2.2.2"}
+      - {flavor: "ruby", version: "2.2.3"}
       - {flavor: "ruby", version: "1.9.3-p551"}
