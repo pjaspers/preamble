@@ -1,10 +1,17 @@
 - name: Installed rubies
-  shell: ls ~/.rubies
+  shell: ls ~/.rbenv/versions
   ignore_errors: true
   register: installed_rubies
   changed_when: False  # never report as "changed"
 
 - name: Install rubies
-  shell: ruby-install {{ item.flavor }} {{ item.version }}
+  shell: rbenv install {{ item.version }}
   with_items: rubies
-  when: installed_rubies.rc != 0 or installed_rubies.stdout.find("{{ item.flavor }}-{{ item.version }}") == -1
+  when: installed_rubies.rc != 0 or installed_rubies.stdout.find("{{ item.version }}") == -1
+
+- name: Install bundler
+  shell: ~/.rbenv/versions/{{ item.version }}/bin/gem install bundler
+  with_items: rubies
+
+- name: Set global ruby to 2.2.2
+  shell: rbenv global 2.2.2

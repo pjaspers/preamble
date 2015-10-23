@@ -9,32 +9,4 @@
 
 - name: Install Applications
   homebrew_cask: name={{ item }} state=installed
-  with_items:
-    - google-chrome                # Mainly for it's handier shortcuts
-    - dropbox                      # Necessary evil
-    - 1password                    # Password manager
-    - adium                        # IM
-    - hipchat                      # not a fan, but needed
-    - firefox                      # mainly for testing purposes
-    - iterm2                       # a better Terminal
-    - arq                          # backup
-    - spotify                      # music
-    - mailmate                     # gui mail
-    - transmission                 # torrents
-    - cyberduck                    # (s)ftp
-    - daisydisk                    # disk usage
-    - base                         # sqlite browser
-    - colorpicker-developer        # A better color picker (easy access to html/UIColor)
-    - vlc
-    - qlstephen                    # Quicklook any possible text file. You need this.
-    - calibre                      # Probably the best ebook app out there.
-    - lastfm                       # My favorite social network to never visit.
-    - omnigraffle                  # Mostly for wireframing
-    - cloak                        # VPN without the hassle.
-    - the-unarchiver               # [A more capable unzip/rar/all_the_things-er](http://wakaba.c3.cx/s/apps/unarchiver)
-    - xscreensaver                 # [jwz's collection of screensaver](http://www.jwz.org/xscreensaver/)
-    - virtualbox
-    - silverlight                  # sigh.
-    - mactex                       # Hmm, LaTeX.
-    - dropshare                    # Take back control of image sharing
-    - slack                        # I still miss campfire. /play sexyback
+  with_items: []
