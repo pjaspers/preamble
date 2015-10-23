@@ -31,6 +31,7 @@
     - heroku # Heroku Toolbelt
     - mosh   # [A better ssh (sometimes)](https://mosh.mit.edu)
     - node   # So I can use npm later on
+    - imagemagick # Convert all the things
 
 - name: Install pure (simple and sleak prompt)
   npm: name=pure-prompt global=yes
