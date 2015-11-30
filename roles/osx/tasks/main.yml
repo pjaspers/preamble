@@ -1,6 +1,7 @@
 - include: applications.yml tags=osx
 - include: capslock_to_control.yml tags=osx,capslock
 - include: defaults.yml tags=osx,defaults
+- include: ftp.yml tags=osx,ftp
 
 # http://files.canon-europe.com/files/soft43931/software/d1343mux_m_215_drv012_cotv013_gdpv012.dmg
 # Needed on Mavericks with Xcode 4.6
