@@ -1,4 +1,4 @@
-- include: applications.yml tags=osx
+- include: applications.yml tags=osx,apps
 - include: capslock_to_control.yml tags=osx,capslock
 - include: defaults.yml tags=osx,defaults
 
