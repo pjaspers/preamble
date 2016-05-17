@@ -1,13 +1,28 @@
 ---
 # Everything related to ruby
-- name: Install chruby
-  homebrew: name=chruby state=present
-- name: Install ruby-install
-  homebrew: name=ruby-install state=present
+- name: Install rbenv
+  homebrew: name=rbenv state=present
+- name: Install ruby-build
+  homebrew: name=ruby-build state=present
+- name: Add rbenv to shell
+  lineinfile: line='if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi' dest=~/.zshrc insertafter=EOF
+- name: Reload shell
+  shell: source ~/.zshrc
+- name: create the install location for rubies
+  shell: mkdir -p ~/.rbenv/versions
+- name: Install rbenv-bundler
+  homebrew: name=rbenv-bundler state=present
+- name: Create rbenv plugins directory
+  file: path=~/.rbenv/plugins state=directory
+- name: Install rbenv aliases
+  git: dest=~/.rbenv/plugins/rbenv-aliases repo=git://github.com/tpope/rbenv-aliases.git
 - include: ruby-install.yml rubies={{ rubies }}
   vars:
     rubies:
-      - {flavor: "ruby", version: "2.0"}
-      - {flavor: "ruby", version: "2.1"}
-      - {flavor: "ruby", version: "2.2"}
-      - {flavor: "ruby", version: "1.9"}
+      - {flavor: "ruby", version: "1.9.3-p551"}
+      - {flavor: "ruby", version: "2.0.0-p645"}
+      - {flavor: "ruby", version: "2.1.0"}
+      - {flavor: "ruby", version: "2.1.6"}
+      - {flavor: "ruby", version: "2.2.2"}
+      - {flavor: "ruby", version: "2.2.3"}
+      - {flavor: "ruby", version: "2.3.1"}

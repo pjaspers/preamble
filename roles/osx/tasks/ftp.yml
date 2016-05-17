@@ -1,0 +1,6 @@
+# Enable the OSX default FTP server
+# As seen [here](http://superuser.com/questions/834625/how-do-i-create-an-ftp-share-on-mac-os-x-yosemite-and-access-it-from-windows-7-v)
+
+- name: Start FTP server 
+  command: launchctl load -w /System/Library/LaunchDaemons/ftp.plist 
+  sudo: yes

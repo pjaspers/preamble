@@ -3,8 +3,6 @@
   roles:
     - common
     - databases
-    - nginx
     - ruby
-    - ios
-    - mail
     - osx
+    - ci

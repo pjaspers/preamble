@@ -1,6 +1,20 @@
 - name: Install Postgres (with workaround for DP7)
   homebrew: name=postgres state=present install_options=no-perl
+- name: Link Postgres LaunchAgent
+  file: src=/usr/local/opt/postgresql/homebrew.mxcl.postgresql.plist dest=~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist state=link
+- name: Start Postgres
+  shell: launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
+- name: create the default postgres user
+  shell: createuser -s {{ ansible_user_id }}
+  ignore_errors: yes
+- name: Create the default postgresql database
+  shell: createdb -O {{ ansible_user_id }} {{ ansible_user_id }}
+  ignore_errors: yes
 - name: Install MariaDB
   homebrew: name=mariadb state=present
+- name: Link mariadb
+  file: src=/usr/local/opt/mariadb/homebrew.mxcl.mariadb.plist dest=~/Library/LaunchAgents/homebrew.mxcl.mariadb.plist state=link
+- name: Start mariadb
+  shell: launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mariadb.plist
 - name: Install Redis
   homebrew: name=redis state=present

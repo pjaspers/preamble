@@ -1,0 +1,28 @@
+- name: Install Java > 1.6+
+  homebrew_cask: name=java state=installed
+ 
+- name: Install Leeeeeeroy Jenkins
+  homebrew: name=jenkins state=present
+
+- name: Load Jenkins at startup
+  file: src=/usr/local/opt/jenkins/homebrew.mxcl.jenkins.plist dest=~/Library/LaunchAgents/homebrew.mxcl.jenkins.plist state=link force=yes
+
+- name: Change Jenkins port to 8888
+  replace: dest=~/Library/LaunchAgents/homebrew.mxcl.jenkins.plist regexp='--httpPort=(\d+)' replace='--httpPort=8888'
+
+- name: Listen on all addresses
+  replace: dest=~/Library/LaunchAgents/homebrew.mxcl.jenkins.plist regexp='--httpListenAddress=127.0.0.1' replace='--httpListenAddress=0.0.0.0'
+
+- name: Listen on /jenkins
+  lineinfile: dest=~/Library/LaunchAgents/homebrew.mxcl.jenkins.plist insertbefore='</array>' line='<string>--prefix=/jenkins</string>'
+  
+- name: Start Jenkins
+  command: launchctl load ~/Library/LaunchAgents/homebrew.mxcl.jenkins.plist
+  
+- name: Ensure ~/bin is present
+  file: state=directory path=~/bin
+
+# Not using this because of an issue with python, so curled it. Comme des animaux.
+# - name: Download and install dbbuilder
+#  get_url: url="https://pile.pjaspers.com/dbbuilder-YyuEMIFHt1." dest=~/bin/dbbuilder
+
