@@ -28,11 +28,11 @@
     - tmux   # [A better screen](http://tmux.sourceforge.net)
     - links  # [Browse in the terminal](http://links.twibright.com)
     - ngrok  # [Easy way to get a public IP](https://ngrok.com)
-    - htop   # [A better top](http://hisham.hm/htop/)
-    - heroku # Heroku Toolbelt
+    - heroku-toolbelt # Heroku Toolbelt
     - mosh   # [A better ssh (sometimes)](https://mosh.mit.edu)
     - tig    # A 'text-mode interface' for git. Bit more visual than regular git.
     - node   # So I can use npm later on
+    - cask   # To handle emacs dependencies.
 
 - name: Install pure (simple and sleak prompt)
   npm: name=pure-prompt global=yes
