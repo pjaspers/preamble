@@ -1,9 +1,3 @@
-- name: Tap Railwaycat\'s emacs port
-  homebrew_tap: tap=railwaycat/emacsmacport state=present
-
-- name: Install Railwaycat\'s emacs port
-  homebrew_cask: name=emacs-mac state=present
-
 - name: Install regular emacs for in Terminal
   homebrew: name=emacs install_options=HEAD,cocoa,srgb,with-gnutls
 
@@ -38,3 +32,4 @@
     - mactex                       # Hmm, LaTeX.
     - dropshare                    # Take back control of image sharing
     - slack                        # I still miss campfire. /play sexyback
+    - emacs-mac                    # A non-free-ish version of emacs that does emoji better.
