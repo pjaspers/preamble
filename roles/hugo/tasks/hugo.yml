@@ -1,0 +1,8 @@
+---
+# Everything needed to have [hugo](https://gohugo.io) up and running
+# It powers/cybers pjaspers.com
+
+- name: Install Hugo
+  homebrew: name=hugo state=present
+
+- pip: name=Pygments
