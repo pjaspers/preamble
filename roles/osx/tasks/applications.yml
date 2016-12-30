@@ -8,7 +8,6 @@
     - dropbox                      # Necessary evil
     - 1password                    # Password manager
     - adium                        # IM
-    - hipchat                      # not a fan, but needed
     - firefox                      # mainly for testing purposes
     - iterm2                       # a better Terminal
     - arq                          # backup
