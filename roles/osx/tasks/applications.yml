@@ -33,3 +33,6 @@
     - dropshare                    # Take back control of image sharing
     - slack                        # I still miss campfire. /play sexyback
     - emacs-mac                    # A non-free-ish version of emacs that does emoji better.
+    - kindle                       # Mainly used to copy notes
+    - superduper                   # Superduper backups.
+    - musicbrainz-picard           # I still like to keep an offline music collection with correct ID3-tags
