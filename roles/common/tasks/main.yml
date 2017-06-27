@@ -1,5 +1,5 @@
 - name: Check for homebrew
-  stat: path=/usr/local/Library
+  stat: path=/usr/local/Homebrew
   register: brew_installed
 
 - name: Install homebrew if needed
