@@ -1,9 +1,13 @@
 - name: Install regular emacs for in Terminal
   homebrew: name=emacs install_options=HEAD,cocoa,srgb,with-gnutls
 
+- name: Tap emacs fork with better Mac support
+  homebrew_tap: name=railwaycat/emacsmacport state=present
+
 - name: Install Applications
   homebrew_cask: name={{ item }} state=installed
   with_items:
+    - alfred                       # Still faster than Spotlight, still not Quiksilver
     - google-chrome                # Mainly for it's handier shortcuts
     - dropbox                      # Necessary evil
     - 1password                    # Password manager
@@ -35,3 +39,6 @@
     - kindle                       # Mainly used to copy notes
     - superduper                   # Superduper backups.
     - musicbrainz-picard           # I still like to keep an offline music collection with correct ID3-tags
+    - caskroom/eid/eid-be
+    - java
+    - omnifocus
