@@ -24,7 +24,6 @@
     - gh     # [Fast github command client](https://github.com/jingweno/gh)
     - tmux   # [A better screen](http://tmux.sourceforge.net)
     - links  # [Browse in the terminal](http://links.twibright.com)
-    - ngrok  # [Easy way to get a public IP](https://ngrok.com)
     - heroku-toolbelt # Heroku Toolbelt
     - mosh   # [A better ssh (sometimes)](https://mosh.mit.edu)
     - tig    # A 'text-mode interface' for git. Bit more visual than regular git.
