@@ -13,9 +13,6 @@
 - name: Tap homebrew cask
   homebrew_tap: name=caskroom/cask state=present
 
-- name: Install homebrew cask
-  homebrew: name="brew-cask" state=latest
-
 - name: Clean homebrew cask
   shell: brew cask cleanup
 
