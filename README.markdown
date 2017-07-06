@@ -21,7 +21,7 @@ And more, see the `playbook.yml` for more info.
 - `git clone https://github.com/pjaspers/preamble.git`
 - `sudo easy_install pip; sudo pip install ansible`
 - `cd preamble`
-- `ansible-playbook playbook.yml --ask-sudo-pass` (it needs sudo for `nginx`)
+- `ansible-playbook playbook.yml`
 
 Once this is done, installing new things is as easy as changing the `playbook.yml` and rerunning `ansible-playbook playbook.yml --ask-sudo-pass`.
 
