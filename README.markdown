@@ -8,7 +8,6 @@ I realise automating setting up a new machine probably isn't worth my time, [her
 
 - Install [Homebrew](http://brew.sh)
 - Install several rubies (see `ruby.yml`)
-- Install nginx and dnsmasq to work along [nginx-app](https://github.com/reprazent/wak) to have `.dev` domains available
 - Install command line apps I use
 - Install apps I use (everything I didn't get through App Store is installed using `brew cask`)
 - Set some sensible OSX defaults
@@ -31,7 +30,6 @@ Available tags:
 
 - ios (Installs everything related to iOS)
 - mail (Installs mutt and friends)
-- nginx (Install nginx and dnsmasq, requires root)
 - ruby (Install rubies)
 - phantomjs (Install phantomjs)
 - osx (Installs os x applications, and also `capslock` and `defaults`)
