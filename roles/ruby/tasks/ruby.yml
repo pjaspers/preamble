@@ -8,6 +8,7 @@
   vars:
     rubies:
       - {flavor: "ruby", version: "2.4.0"}
+      - {flavor: "ruby", version: "2.4.2"}
       - {flavor: "ruby", version: "2.1"}
       - {flavor: "ruby", version: "2.3.1"}
       - {flavor: "ruby", version: "2.3.4"}
