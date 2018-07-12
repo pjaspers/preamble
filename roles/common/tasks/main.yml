@@ -38,3 +38,6 @@
 
 - name: Install DejaVu Sans Mono
   homebrew_cask: name=font-dejavu-sans
+
+- name: Install ngrok (easy tunnel out)
+  homebrew_cask: name=ngrok
