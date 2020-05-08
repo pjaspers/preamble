@@ -35,3 +35,5 @@ Available tags:
 - osx (Installs os x applications, and also `capslock` and `defaults`)
 - capslock (Remaps capslock to control)
 - defaults (Sets Finder defaults)
+
+https://support.apple.com/kb/DL1888?locale=en_US
