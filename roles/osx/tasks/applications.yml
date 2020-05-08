@@ -1,19 +1,11 @@
-- name: Install regular emacs for in Terminal
-  homebrew: name=emacs install_options=HEAD,cocoa,srgb,with-gnutls
-
-- name: Tap emacs fork with better Mac support
-  homebrew_tap: name=railwaycat/emacsmacport state=present
-
 - name: Install Applications
   homebrew_cask: name={{ item }} state=installed
   with_items:
     - alfred                # Still faster than Spotlight, still not Quiksilver
     - google-chrome         # Mainly for it's handier shortcuts
-    - dropbox               # Necessary evil
     - 1password             # Password manager
     - adium                 # IM
     - firefox               # mainly for testing purposes
-    - iterm2                # a better Terminal
     - arq                   # backup
     - spotify               # music
     - mailmate              # Looking for a decent Mail client? This is it.
@@ -25,22 +17,15 @@
     - vlc
     - qlstephen             # Quicklook any possible text file. You need this.
     - calibre               # Probably the best ebook app out there.
-    - lastfm                # My favorite social network to never visit.
-    - omnigraffle           # Mostly for wireframing
-    - cloak                 # VPN without the hassle.
     - the-unarchiver        # [A more capable unzip/rar/all_the_things-er](http://wakaba.c3.cx/s/apps/unarchiver)
     - xscreensaver          # [jwz's collection of screensaver](http://www.jwz.org/xscreensaver/)
-    - virtualbox
-    - silverlight           # sigh.
     - mactex                # Hmm, LaTeX.
     - dropshare             # Take back control of image sharing
     - slack                 # I still miss campfire. /play sexyback
-    - emacs-mac             # A non-free-ish version of emacs that does emoji better.
     - kindle                # Mainly used to copy notes
     - superduper            # Superduper backups.
     - musicbrainz-picard    # I still like to keep an offline music collection with correct ID3-tags
     # - caskroom/eid/eid-be # Need this. Doesn't know it is installed, ,,shrug
-    - java
     - omnifocus             # Fanfuckingtastic
     - zoomus                # Video/audio in the least sucky way
     - skype                 # Video/audio in a sucky way
