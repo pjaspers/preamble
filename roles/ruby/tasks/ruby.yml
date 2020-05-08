@@ -7,10 +7,7 @@
 - include: ruby-install.yml rubies={{ rubies }}
   vars:
     rubies:
-      - {flavor: "ruby", version: "2.4.0"}
-      - {flavor: "ruby", version: "2.4.2"}
-      - {flavor: "ruby", version: "2.1"}
-      - {flavor: "ruby", version: "2.3.1"}
-      - {flavor: "ruby", version: "2.3.4"}
-      - {flavor: "ruby", version: "2.2.3"}
-      - {flavor: "ruby", version: "1.9.3-p551"}
+      - {flavor: "ruby", version: "2.4"}
+      - {flavor: "ruby", version: "2.5"}
+      - {flavor: "ruby", version: "2.6"}
+      - {flavor: "ruby", version: "2.7"}
