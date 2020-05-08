@@ -1,4 +1,1 @@
 - include: ruby.yml tags=ruby
-
-- name: Install phantomjs
-  homebrew: name=phantomjs state=present
