@@ -10,34 +10,25 @@
 - name: Update homebrew
   homebrew: update_homebrew=yes
 
-- name: Tap homebrew cask
-  homebrew_tap: name=caskroom/cask state=present
-
-- name: Clean homebrew cask
-  shell: brew cask cleanup
-
 - name: Common utilities
   homebrew: name={{ item }} state=present
   with_items:
     - git
     - ag     # [A code-searching tool similar to ack, but faster](http://geoff.greer.fm/ag/)
-    - gh     # [Fast github command client](https://github.com/jingweno/gh)
     - tmux   # [A better screen](http://tmux.sourceforge.net)
     - links  # [Browse in the terminal](http://links.twibright.com)
-    - heroku-toolbelt # Heroku Toolbelt
     - mosh   # [A better ssh (sometimes)](https://mosh.mit.edu)
     - tig    # A 'text-mode interface' for git. Bit more visual than regular git.
     - node   # So I can use npm later on
-    - cask   # To handle emacs dependencies.
 
 - name: Install pure (simple and sleak prompt)
   npm: name=pure-prompt global=yes
 
 - name: Tap homebrew fonts
-  homebrew_tap: tap=caskroom/fonts state=present
+  homebrew_tap: tap=homebrew/cask-fonts state=present
 
 - name: Install DejaVu Sans Mono
-  homebrew_cask: name=font-dejavu-sans
+  homebrew_cask: name=font-dejavu
 
 - name: Install ngrok (easy tunnel out)
   homebrew_cask: name=ngrok

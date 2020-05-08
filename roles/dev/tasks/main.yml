@@ -1,0 +1,11 @@
+- name: Install Terraform
+  homebrew: name=terraform state=present
+
+- name: Install AWS CLI
+  homebrew: name=awscli state=present
+
+- name: Tap heroku
+  homebrew_tap: tap=heroku/brew state=present
+
+- name: Install Heroku CLI
+  homebrew: name=heroku state=present

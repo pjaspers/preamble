@@ -3,6 +3,8 @@
   roles:
     - common
     - databases
+    - role: dev
+      tags: dev
     - ruby
     - ios
     - mail
