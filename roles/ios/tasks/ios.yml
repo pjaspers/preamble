@@ -1,4 +1,2 @@
 ---
 # Everything related to iOS
-- name: Install mogenerator
-  homebrew: name=mogenerator state=present

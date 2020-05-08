@@ -1,11 +1,15 @@
 ---
 - hosts: all
   roles:
-    - common
-    - databases
+    - role: common
+      tags: common
+    - role: databases
+      tags: databases
     - role: dev
       tags: dev
-    - ruby
-    - ios
-    - mail
-    - osx
+    - role: ruby
+      tags: ruby
+    # - ios
+    # - mail
+    - role: osx
+      tags: osx
